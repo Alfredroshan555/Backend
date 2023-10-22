@@ -1,18 +1,36 @@
 const http = require("http");
+const express = require("express");
 const { customModule } = require("./module"); // Custom function import within the project
+const { getAllProducts } = require("./products");
 
 const port = 3000;
 
-// Getting value/data from a custom module/function in node.js
-const string = customModule();
+const app = express();
 
-const server = http.createServer((req, res) => {
-  console.log("Server running on ::" + port);
-  res.write(string + " " + port);
-  res.end();
+// Getting value/data from a custom module/function in node.js
+const data = customModule();
+
+const products = getAllProducts();
+
+// Home route '/'
+app.get("/", (req, res) => {
+  res.send(data);
 });
 
-server.listen(port);
+// Products Page
+app.get("/products", (req, res) => {
+  res.send(products);
+});
+
+app.listen(port, () => console.log("App is running on port " + " " + port));
+
+// const server = http.createServer((req, res) => {
+//   console.log("A change was made" + port);
+//   res.write(string + " " + port);
+//   res.end();
+// });
+
+// server.listen(port);
 
 // TODO) ==>
 /**
