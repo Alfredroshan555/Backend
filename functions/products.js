@@ -1,4 +1,4 @@
-const getAllProducts = () => {
+const getAllProducts = (req, res) => {
   const products = [
     {
       products: [
@@ -587,7 +587,7 @@ const getAllProducts = () => {
     },
   ];
 
-  return products;
+  return res.json(products);
 };
 
 module.exports = { getAllProducts };

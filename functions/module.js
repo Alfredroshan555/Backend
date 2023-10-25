@@ -1,4 +1,4 @@
-const customModule = () => {
+const customModule = (req, res) => {
   console.log("This is a custom module");
 
   const data = [
@@ -23,7 +23,7 @@ const customModule = () => {
     },
   ];
 
-  return data;
+  return res.json(data);
 };
 
 // Exporting a module/function

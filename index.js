@@ -1,26 +1,20 @@
-const http = require("http");
 const express = require("express");
-const { customModule } = require("./module"); // Custom function import within the project
-const { getAllProducts } = require("./products");
+const router = require("./routes/router");
+const cors = require("cors");
 
-const port = 3000;
+const PORT = 3000;
 
 // Express App
 const app = express();
 
-// Getting value/data from a custom module/function in node.js
-const data = customModule();
+app.use(express.json());
+app.use(cors({ origin: "http://localhost:3001", optionsSuccessStatus: 200 }));
 
-const products = getAllProducts();
+// Express Router for routing
+// const router = express.Router();
 
-// Home route '/'
-app.get("/", (req, res) => {
-  res.send(data);
-});
+// Middleware to use express Router
+app.use("/", router);
 
-// Products Page
-app.get("/products", (req, res) => {
-  res.send(products);
-});
-
-app.listen(port, () => console.log("App is running on port " + " " + port));
+// Run the server Here ==> localhost:portnumber
+app.listen(PORT, () => console.log("Server is running on port: " + "" + PORT));
