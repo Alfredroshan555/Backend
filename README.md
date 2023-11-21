@@ -9,3 +9,12 @@ Add a middleware for some functionalities
 Fetch data from a local database ==> maybe MongoDb or MySql or some other database
 Configure Router for the app and seggregate the routes into different router files
 Add Controllers for different types of functionalities of the application
+
+<!-- TODO -->
+
+Create APIs for ==>
+    1.SignUp ==> /signup POST
+    2.LogIn  ==> /login  POST
+    3.LogOut ==> /logout POST
+
+    4.Get user information ==> /user GET

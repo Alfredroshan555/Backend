@@ -10,11 +10,12 @@ Content-Type: application/json
 }
 
 ###
-POST  http://localhost:3000/login
+POST  http://localhost:3000/signup
 Content-Type: application/json
 
 {
-    "name": "sdas",
-    "email": "sdas@example.com"
+    "name": "roshan",
+    "email": "alfredRoshan@example.com",
+    "password" :"Newpassword"
 
 }
